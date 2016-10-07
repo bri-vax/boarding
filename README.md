@@ -46,7 +46,7 @@ Get in contact with the developers on Twitter: [@FastlaneTools](https://twitter.
 
 <h5 align="center"><code>boarding</code> is part of <a href="https://fastlane.tools">fastlane</a>: connect all deployment tools into one streamlined workflow.</h5>
 
-# What's boarding?
+# What's boarding? 
 
 Instantly create a simple signup page for TestFlight beta testers.
 
