@@ -12,55 +12,222 @@
   <!-- End Google Analytics -->
 <% end %>
 
-<div class="container" style="text-align: center; max-width: 350px; padding-top: 20px;">
-  <% if @metadata[:icon_url] %>
-    <%= image_tag @metadata[:icon_url], class: "appIcon", style: "margin-bottom: 30px;" %>
-  <% else %>
-    <div style="margin-bottom: 20px"></div>
-  <% end %>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <title>Bookizy | The fastest way to catch up with friends and family</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta property="og:title" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+  <!-- Styles -->
+  <%= stylesheet_link_tag "animate.css" %>
+  <%= stylesheet_link_tag "font-awesome.min.css" %>
+  <%= stylesheet_link_tag "bootstrap.min.css" %>
+  <%= stylesheet_link_tag "main.css" %>
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
 
 
 
-  <% unless @message %>
-    <h4 class="" style="margin-bottom: 40px;"><%= @metadata[:title] %></h4>
+  <%= javascript_include_tag('modernizr-2.7.1.js') %>
 
-    <%= form_tag("submit", method: "post", style: "text-align: left") do %>
-      <%= label_tag(:first_name, t(:first_name_label)) %>
-      <%= text_field_tag :first_name, '', class: "form-control", placeholder: t(:first_name_placeholder) %><br />
-      <%= label_tag(:last_name, t(:last_name_label)) %>
-      <%= text_field_tag :last_name, '', class: "form-control", placeholder: t(:last_name_placeholder) %><br />
-      <%= label_tag(:email, t(:email_label), class: "required") %>
-      <%= email_field_tag :email, '', class: "form-control", placeholder: t(:email_placeholder) %><br />
+</head>
 
-      <% if ENV["ITC_TOKEN"] %>
-        <% if params[:token] %>
-          <%= hidden_field_tag :token, '', value: params[:token] %>
-        <% else %>
-          <%= label_tag(:token, t(:password_label)) %>
-          <%= text_field_tag :token, '', class: "form-control", placeholder: t(:password_placeholder) %><br />
-        <% end %>
-      <% end %>
+<body>
 
-      <br />
-      <%= submit_tag t(:get_beta_access), class: 'btn btn-lg btn-primary btn-block', id: "submit" %>
-    <% end %>
-  <% else %>
-    <p class="alert alert-<%= @type %>">
-      <%= @message %>
-    </p>
-  <% end %>
-</div>
 
-<style type="text/css">
-  .appIcon {
-    -webkit-border-radius: 22.544%;
-       -moz-border-radius: 22.544%;
-        -ms-border-radius: 22.544%;
-            border-radius: 22.544%;
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="logo" href="#"><%=image_tag("Bookizy.svg")%></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#invite" class="scroll">Join the beta</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
 
-    width: 256px;
-  }
-  #submit {
-    margin-bottom: 20px;
-  }
-</style>
+
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <a href="#"><%=image_tag("Bookizy.svg")%></a>
+          </div>
+          <div class="col-xs-6 signin text-right navbar-nav">
+            <a href="#invite">Join the beta</a>
+          </div>
+        </div>
+
+        <div class="row header-info">
+          <div class="col-sm-10 col-sm-offset-1 text-center">
+            <h1 class="wow fadeIn">The fastest way to catch up <br/> with friends and family</h1>
+            <br />
+            <p class="lead wow fadeIn" data-wow-delay="0.5s"></p>
+            <br />
+
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="row">
+                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
+                    <a href="#be-the-first" class="btn btn-secondary btn-lg scroll">Learn More</a>
+                  </div>
+                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
+                    <a href="#invite" class="btn btn-primary btn-lg scroll">Request Invite</a>
+                  </div>
+                </div><!--End Button Row-->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+
+    <div class="mouse-icon hidden-xs">
+				<div class="scroll"></div>
+			</div>
+
+    <section id="be-the-first" class="pad-xl">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
+            <h2>Be the first</h2>
+            <p class="lead">Try our new iPhone app.</p>
+          </div>
+        </div>
+
+        <div class="iphone wow fadeInUp" data-wow-delay="1s">
+          <%=image_tag("iphone.png")%>
+        </div>
+      </div>
+    </section>
+
+    <section id="main-info" class="pad-xl">
+	    <div class="container">
+		    <div class="row">
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+				    <hr class="line purple">
+				    <h3>Easy</h3>
+				    <p></p>
+			    </div>
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
+				    <hr  class="line blue">
+				    <h3>Fast</h3>
+				    <p></p>
+			    </div>
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
+				    <hr  class="line yellow">
+				    <h3>Fun</h3>
+				    <p></p>
+			    </div>
+		    </div>
+	    </div>
+    </section>
+
+
+
+    <section id="invite" class="pad-lg light-gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <i class="fa fa-envelope-o margin-40"></i>
+            <h2 class="black">Get the invite</h2>
+            <br />
+            <p class="black">We're looking for beta testers!</p>
+            <br />
+
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+
+                  <div class="form-group">
+
+                    <% unless @message %>
+                      <h4 class="" style="margin-bottom: 40px;"><%= @metadata[:title] %></h4>
+
+                      <%= form_tag("submit", method: "post", style: "text-align: left") do %>
+                        <%= label_tag(:first_name, t(:first_name_label)) %>
+                        <%= text_field_tag :first_name, '', class: "form-control", placeholder: t(:first_name_placeholder) %><br />
+                        <%= label_tag(:last_name, t(:last_name_label)) %>
+                        <%= text_field_tag :last_name, '', class: "form-control", placeholder: t(:last_name_placeholder) %><br />
+                        <%= label_tag(:email, t(:email_label), class: "required") %>
+                        <%= email_field_tag :email, '', class: "form-control", placeholder: t(:email_placeholder) %><br />
+
+                        <% if ENV["ITC_TOKEN"] %>
+                          <% if params[:token] %>
+                            <%= hidden_field_tag :token, '', value: params[:token] %>
+                          <% else %>
+                            <%= label_tag(:token, t(:password_label)) %>
+                            <%= text_field_tag :token, '', class: "form-control", placeholder: t(:password_placeholder) %><br />
+                          <% end %>
+                        <% end %>
+
+                        <br />
+                        <%= submit_tag t(:get_beta_access), class: 'btn btn-lg btn-primary btn-block', id: "submit" %>
+                      <% end %>
+                    <% else %>
+                      <p class="alert alert-<%= @type %>">
+                        <%= @message %>
+                      </p>
+                    <% end %>
+
+
+                  </div>
+
+
+              </div>
+            </div><!--End Form row-->
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-8 margin-20">
+
+          </div>
+
+          <div class="col-sm-4 text-right">
+            <p><small>Copyright &copy; 2016. All rights reserved.
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+
+
+    <%= javascript_include_tag('wow.min.js') %>
+    <%= javascript_include_tag('bootstrap.min.js') %>
+    <%= javascript_include_tag('main.js') %>
+
+
+    </body>
+</html>
